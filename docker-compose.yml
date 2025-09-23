@@ -1,0 +1,20 @@
+#versión del docker compose
+version: "3.9"
+services:
+  service-config-image:
+    #nombre de la imagen
+    image: service-config-image
+    #nombre del contenedor
+    container_name: service-config-container
+    #se mapean los puertos de la computadora con los del contenedor
+    ports:
+      - "8083:8083"
+    #especificar la red del contenedor
+    networks:
+      - spring-network
+    environment:
+      - GIT_PASSWORD=Manchaspupi07
+      - GIT_USER=carlosortegariveros@gmail.com
+#permitir que el contenedor tenga salida a internet
+networks:
+  spring-network:

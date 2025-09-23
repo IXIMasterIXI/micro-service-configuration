@@ -1,0 +1,27 @@
+#IMAGEN MODELO
+FROM eclipse-temurin:17.0.14_7-jdk
+
+# INFORMAR EL PUERTO DONDE SE EJECUTA EL CONTENEDOR (INFORMATIVO)
+EXPOSE 8083
+
+#Definir directorio raiz del contenedor
+WORKDIR /root
+
+#Copiar y pegar archivos dentro del contenedor
+COPY ./pom.xml /root
+COPY ./.mvn /root/.mvn
+COPY ./mvnw /root
+
+#Descargar las dependencias
+#el comando descarga las dependencias pero no construye el proyecto
+RUN ./mvnw dependency:go-offline
+
+#Copiar el codigo fuente del contenedor
+COPY ./src /root/src
+
+#Construir la aplicación
+RUN ./mvnw clean install
+
+#Levantar aplicación cuando el contenedor inicie
+#ENTRYPOINT permite ejecutar un comando hasta que el contenedor inicie
+ENTRYPOINT ["nohup","java", "-jar", "/root/target/config-service-0.0.1-SNAPSHOT.jar", "&" ]

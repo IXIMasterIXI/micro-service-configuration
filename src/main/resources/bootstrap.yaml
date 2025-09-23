@@ -1,0 +1,26 @@
+server:
+  port: 8083
+
+logging:
+    file:
+      name: logs/app.log
+      path: logs
+    level:
+      root: INFO
+
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitlab.com/proyectos4061203/repo-config-data.git
+          searchPaths: config-data
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
+          default-label: "main"
+
+  security:
+    user:
+      name: root
+      password: secret
