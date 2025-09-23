@@ -31,3 +31,10 @@ jobs:
       run: mvn install
     - name: Ejecutar pruebas unitarias con Maven
       run: mvn test
+    - name: Login to dockerhub
+      run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}} 
+    - name: Construir Docker Image # Step to build the Docker image
+      run: docker build . -f Dokerfile -t "service-config-image" # Build the Docker image with the specified tag
+    - name: Push Docker image # Step to push the Docker image to Docker Hub
+      run: docker push carlosortegariveros/service-config-image # Push the Docker image with the specified tag
+
