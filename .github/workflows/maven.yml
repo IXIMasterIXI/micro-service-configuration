@@ -29,3 +29,5 @@ jobs:
         cache: maven
     - name: Construir con Maven
       run: mvn install
+    - name: Ejecutar pruebas unitarias con Maven
+      run: mvn test
