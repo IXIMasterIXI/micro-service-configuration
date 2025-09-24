@@ -36,5 +36,5 @@ jobs:
     - name: Construir Docker Image # Se crea la imagen docker
       run: docker build . -f Dokerfile -t "service-config-image" 
     - name: Push Docker image # Step to push the Docker image to Docker Hub
-      run: docker push carlosortegariveros/service-config-image # se sube la imagen creada a docker hub
+      run: docker push carlosortegariveros/micro-service-configuration:service-config-image # se sube la imagen creada a docker hub
 
