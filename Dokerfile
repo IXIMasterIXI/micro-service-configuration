@@ -12,6 +12,8 @@ COPY ./pom.xml /root
 COPY ./.mvn /root/.mvn
 COPY ./mvnw /root
 
+RUN chmod +x mvnw
+
 #Descargar las dependencias
 #el comando descarga las dependencias pero no construye el proyecto
 RUN ./mvnw dependency:go-offline
