@@ -1,3 +1,4 @@
+//pipeline o archivo de configuración de CI para jenkins
 pipeline {
   
   agent any
