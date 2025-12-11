@@ -1,3 +1,4 @@
+//pipeline con las instrucciones para CI/DC de service configuration
 pipeline {
     agent any
     stages {
