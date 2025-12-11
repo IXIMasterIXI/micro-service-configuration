@@ -1,41 +1,10 @@
-//pipeline o archivo de configuración de CI para jenkins
 pipeline {
-  
-  agent any
-  
-   stages {
-        stage('Checkout') {
+    agent any
+    stages {
+        stage('Build') { 
             steps {
-                git 'https://github.com/IXIMasterIXI/micro-service-configuration.git'
+                sh 'mvn -B -DskipTests clean package' 
             }
-        }
-        //stage('Build') {
-          //  steps {
-            //    sh 'mvn clean install' 
-           // }
-        //}
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        stage('Package') {
-            steps {
-                sh 'mvn package'
-            }
-        }
-       // stage('Deploy') {
-         //   steps {
-           //     sh './ls'
-            //}
-        //}
-    }
-    post {
-        success {
-            echo 'Build and Deploy succeeded!'
-        }
-        failure {
-            echo 'Build or Deploy failed!'
         }
     }
 }
