@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Kill services') { 
             steps {
-                sh 'pkill -f java' 
+                sh 'pkill -f service-configuration' 
             }
         }
         stage('Test') { 
