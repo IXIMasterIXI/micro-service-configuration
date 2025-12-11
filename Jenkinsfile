@@ -14,7 +14,7 @@ pipeline {
         //}
         stage('Deploy'){
             steps{
-                sh 'BUILD_ID=dontKillMe java -jar target/config-service-0.0.1-SNAPSHOT.jar'
+                sh 'JENKINS_NODE_COOKIE=dontKillMe java -jar target/config-service-0.0.1-SNAPSHOT.jar &'
             }
         }
     }
