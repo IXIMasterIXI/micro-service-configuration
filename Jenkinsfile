@@ -2,11 +2,6 @@
 pipeline {
     agent any
     stages {
-        stage('Kill services') { 
-            steps {
-                sh 'pkill -f service-configuration' 
-            }
-        }
         stage('Test') { 
             steps {
                 sh 'mvn test' 
