@@ -7,14 +7,14 @@ pipeline {
                 sh 'mvn test' 
             }
         }
-        stage('package'){
-            steps{
-                sh 'mvn package'
-            }
-        }
+       // stage('package'){
+        //    steps{
+          //      sh 'mvn package'
+            //}
+        //}
         stage('Deploy'){
             steps{
-                sh 'BUILD_ID=dontKillMe java -jar target/config-service-0.0.1-SNAPSHOT.jar &'
+                sh 'BUILD_ID=dontKillMe java -jar target/config-service-0.0.1-SNAPSHOT.jar'
             }
         }
     }
