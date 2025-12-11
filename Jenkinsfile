@@ -16,19 +16,19 @@ pipeline {
         //}
         stage('Test') {
             steps {
-                sh './mvn test'
+                sh 'mvn test'
             }
         }
         stage('Package') {
             steps {
-                sh './mvn package'
+                sh 'mvn package'
             }
         }
-        stage('Deploy') {
-            steps {
-                sh './ls'
-            }
-        }
+       // stage('Deploy') {
+         //   steps {
+           //     sh './ls'
+            //}
+        //}
     }
     post {
         success {
